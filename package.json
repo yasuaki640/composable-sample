@@ -1,5 +1,5 @@
 {
-  "name": "custom-hooks-sample",
+  "name": "composable-sample",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "json-server": "^0.17.3",
     "vue": "^3.3.2"
   },
   "devDependencies": {
