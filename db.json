@@ -1,15 +1,15 @@
 {
   "belongings": [
     {
-      "id": 1,
+      "id": "408d9383-b6b6-4571-81f8-d0323b51c0f5",
       "name": "Mac"
     },
     {
-      "id": 2,
+      "id": "c23ada7c-82f5-4545-9cec-2322536d75e4",
       "name": "Windows"
     },
     {
-      "id": 3,
+      "id": "10317456-5d94-41dd-adb6-8ff85d5a36fe",
       "name": "Thinkpad (Arch Linux installed)"
     }
   ]

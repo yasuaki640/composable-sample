@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { v4 as uuidv4 } from "uuid";
 
 type Belonging = {
-  id: number;
+  id: string;
   name: string;
 };
 
@@ -13,8 +14,18 @@ fetch(import.meta.env.VITE_API_DOMAIN + "/belongings")
     belongings.value = json;
   });
 
-const removeBelonging = (id: number) => {
+const removeBelonging = (id: string) => {
   belongings.value = belongings.value.filter((t) => t.id !== id);
+};
+
+const nameInput = ref("");
+
+const addBelonging = () => {
+  belongings.value.push({
+    id: uuidv4(),
+    name: nameInput.value
+  });
+  nameInput.value = "";
 };
 </script>
 
@@ -28,5 +39,9 @@ const removeBelonging = (id: number) => {
         <button @click="removeBelonging(belonging.id)">remove</button>
       </li>
     </ul>
+    <div id="add-todo-pane">
+      <input v-model="nameInput" type="text" />
+      <button @click="addBelonging">add</button>
+    </div>
   </main>
 </template>
