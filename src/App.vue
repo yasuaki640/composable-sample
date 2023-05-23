@@ -40,6 +40,12 @@ const addBelonging = () => {
   });
   nameInput.value = "";
 };
+
+const submitEdit = () => {
+  const json = JSON.stringify(belongings.value, null, 2);
+  alert("Submitted belonging list is below : \n" + json);
+  location.reload();
+};
 </script>
 
 <template>
@@ -58,6 +64,15 @@ const addBelonging = () => {
         <input v-model="nameInput" type="text" />
         <button @click="addBelonging">add</button>
       </div>
+      <div id="submit-button">
+        <button @click="submitEdit">submit</button>
+      </div>
     </section>
   </main>
 </template>
+
+<style scoped>
+#submit-button {
+  padding: 10px;
+}
+</style>
