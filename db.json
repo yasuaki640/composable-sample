@@ -1,3 +1,19 @@
 {
-  "todos": ["絵を描く", "サラダを食べる", "ダンスレッスン"]
+  "todos": [
+    {
+      "id": 1,
+      "title": "絵を描く",
+      "done": false
+    },
+    {
+      "id": 2,
+      "title": "スタバでMacを開く",
+      "done": false
+    },
+    {
+      "id": 3,
+      "title": "荒川公園でArch Linux Thinkpadを開く",
+      "done": false
+    }
+  ]
 }
