@@ -1,43 +1,32 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-type Todo = {
+type Belonging = {
   id: number;
-  title: string;
-  done: boolean;
+  name: string;
 };
 
-const todos = ref<Todo[]>([]);
-fetch(import.meta.env.VITE_API_DOMAIN + "/todos")
+const belongings = ref<Belonging[]>([]);
+fetch(import.meta.env.VITE_API_DOMAIN + "/belongings")
   .then((res) => res.json())
   .then((json) => {
-    todos.value = json;
+    belongings.value = json;
   });
 
-const makeDone = (id: number) => {
-  const target = todos.value.find((t) => t.id === id);
-  if (target) {
-    target.done = true;
-  }
+const removeBelonging = (id: number) => {
+  belongings.value = belongings.value.filter((t) => t.id !== id);
 };
 </script>
 
 <template>
   <main>
     <h1>Vue3 Composable Sample</h1>
-    <h2>Todo 一括編集</h2>
+    <h2>旅行の持ち物 一括編集</h2>
     <ul>
-      <template v-for="todo in todos" :key="todo.id">
-        <li :class="{ 'done-todo': todo.done }">
-          {{ todo.title }} <button v-if="!todo.done" @click="makeDone(todo.id)">done</button>
-        </li>
-      </template>
+      <li v-for="belonging in belongings" :key="belonging.id">
+        {{ belonging.name }}
+        <button @click="removeBelonging(belonging.id)">remove</button>
+      </li>
     </ul>
   </main>
 </template>
-
-<style scoped>
-.done-todo {
-  text-decoration: line-through;
-}
-</style>
