@@ -6,8 +6,9 @@
     "composite": true,
     "baseUrl": ".",
     "strict": true,
+    "types": ["vitest/globals"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
   }
 }
