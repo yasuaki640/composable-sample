@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
-import { type Belonging } from "@/types/belonging";
+import { type Belonging } from "@/types/Belonging";
 
 export const useEditBelongings = () => {
   const belongings = ref<Belonging[]>([]);
