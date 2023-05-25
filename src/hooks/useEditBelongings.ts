@@ -37,8 +37,14 @@ export const useEditBelongings = () => {
   };
 
   const submitEdit = () => {
+    loading.value = true;
+
     const json = JSON.stringify(belongings.value, null, 2);
     alert("Submitted belonging list is below : \n" + json);
+
+    belongings.value = [];
+    loading.value = false;
+
     location.reload();
   };
 
