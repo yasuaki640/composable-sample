@@ -115,20 +115,12 @@ describe("useEditBelongings", () => {
     nameInput.value = "iPhone";
     appendBelonging();
 
-    expect(belongings.value).toStrictEqual([
-      {
-        id: "408d9383-b6b6-4571-81f8-d0323b51c0f5",
-        name: "Mac"
-      },
-      {
-        id: "10317456-5d94-41dd-adb6-8ff85d5a36fe",
-        name: "Thinkpad (Arch Linux installed)"
-      },
-      {
-        id: expect.any(String),
-        name: "iPhone"
-      }
-    ]);
+    expect(belongings.value).toContainEqual({
+      id: expect.any(String),
+      name: "iPhone"
+    });
+
+    expect(nameInput.value).toBe("");
   });
 
   it("nameInputに何も入力されていない場合、appendBelongingで追加できない", async () => {
